@@ -8,9 +8,12 @@
 " \hp               - GitGutterPreviewHunk
 " \hu               - GitGutterUndoHunk
 " \hs               - GitGutterStageHunk
-" [c, ]c            - previous/next hunk
+" [c / ]c           - previous/next hunk
 " :FixWhitespace    - remove trailing whitespaces
 " t                 - taglist toggle
+" <C-]>             - follow tag
+" g <C-]>           - follow tag (multiple matches)
+" :tn / :tp         - next/previous tag match
 
 " Vundle - Brief help
 " :PluginList       - lists configured plugins
