@@ -44,6 +44,7 @@ Plugin 'taglist.vim'
 Plugin 'craigemery/vim-autotag'
 Plugin 'brookhong/cscope.vim'
 Plugin 'danro/rename.vim'
+Plugin 'derekwyatt/vim-fswitch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
