@@ -37,7 +37,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'd11wtq/ctrlp_bdelete.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'taglist.vim'
@@ -59,9 +59,11 @@ map <C-B> :CtrlPBuffer<CR>
 map t :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+colorscheme jellybeans
+
 set hidden
 set ic
 set wildignore+=*.pyc
