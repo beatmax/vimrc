@@ -45,6 +45,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'brookhong/cscope.vim'
 Plugin 'danro/rename.vim'
 Plugin 'derekwyatt/vim-fswitch'
+Plugin 'embear/vim-localvimrc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -59,6 +60,8 @@ let NERDTreeIgnore = ['\.pyc$']
 map <C-B> :CtrlPBuffer<CR>
 map t :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
+let g:localvimrc_file_directory_only = 1
+let g:localvimrc_persistent = 1
 
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
