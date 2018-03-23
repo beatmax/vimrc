@@ -71,6 +71,7 @@ colorscheme jellybeans
 set hidden
 set ic
 set wildignore+=*.pyc
+set updatetime=100
 
 " -- Cscope --
 let g:cscope_silent=1
