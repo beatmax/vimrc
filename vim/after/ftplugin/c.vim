@@ -1,4 +1,5 @@
 setlocal expandtab
-setlocal shiftwidth=4
+setlocal shiftwidth=2
 setlocal shiftround
-setlocal tabstop=4
+setlocal tabstop=2
+setlocal comments^=:///
