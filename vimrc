@@ -3,6 +3,7 @@
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
 " <C-@>             - Delete buffer (in CtrlPBuffer)
+" <C-G>             - Git files (fzf)
 " :Gstatus          - Git status
 " :Gdiff            - Git diff
 " \hp               - GitGutterPreviewHunk
@@ -14,6 +15,13 @@
 " <C-]>             - follow tag
 " g <C-]>           - follow tag (multiple matches)
 " :tn / :tp         - next/previous tag match
+" \of               - switch source/hearder
+"
+" Insert mode
+" <c-x><c-k>        - complete word (fzf)
+" <c-x><c-l>        - complete line (fzf)
+"
+" Many things can be done with fzf, see: https://github.com/junegunn/fzf.vim
 
 " Vundle - Brief help
 " :PluginList       - lists configured plugins
@@ -46,6 +54,11 @@ Plugin 'brookhong/cscope.vim'
 Plugin 'danro/rename.vim'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'embear/vim-localvimrc'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'gioele/vim-autoswap'
+Plugin 'scrooloose/syntastic'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -60,8 +73,15 @@ let NERDTreeIgnore = ['\.pyc$']
 map <C-B> :CtrlPBuffer<CR>
 map t :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
-let g:localvimrc_file_directory_only = 1
+"let g:localvimrc_file_directory_only = 1
 let g:localvimrc_persistent = 1
+nmap <silent> <Leader>of :FSHere<cr>
+let c_no_curly_error=1
+
+" fzf
+map <C-G> :GFiles<CR>
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
@@ -94,5 +114,19 @@ nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
 nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+
+" -- Syntastic --
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "passive_filetypes": ["cpp"] }
 
 " --
