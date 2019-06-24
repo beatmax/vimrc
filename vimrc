@@ -1,21 +1,27 @@
 " Quick reference
+" Zz                - Exit Vim if no buffers have changes
 " :cw               - Open quickfix window
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
 " <C-@>             - Delete buffer (in CtrlPBuffer)
 " <C-G>             - Git files (fzf)
-" :Gstatus          - Git status
-" :Gdiff            - Git diff
+" \gs               - Git status
+" \gd               - Git diff
 " \hp               - GitGutterPreviewHunk
 " \hu               - GitGutterUndoHunk
 " \hs               - GitGutterStageHunk
 " [c / ]c           - previous/next hunk
 " :FixWhitespace    - remove trailing whitespaces
+" ,T                - run ctags on C++ headers
 " t                 - taglist toggle
 " <C-]>             - follow tag
 " g <C-]>           - follow tag (multiple matches)
 " :tn / :tp         - next/previous tag match
+" \m                - write all and make
 " \of               - switch source/hearder
+" <C-j> / <C-k>     - next/previous location in location list
+" ,j / ,k           - next/previous location in quickfix list
+" <BS>              - turn off highlighted search matches
 "
 " Insert mode
 " <c-x><c-k>        - complete word (fzf)
@@ -68,6 +74,17 @@ call ctrlp_bdelete#init()
 
 " Put your non-Plugin stuff after this line
 
+set hidden
+set ic
+set wildignore+=*.pyc
+set updatetime=100
+set title
+"set laststatus=2
+set cursorline
+
+nmap Zz :qa<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
 map <Tab> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 map <C-B> :CtrlPBuffer<CR>
@@ -75,23 +92,36 @@ map t :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
 "let g:localvimrc_file_directory_only = 1
 let g:localvimrc_persistent = 1
+nmap <Leader>m :wa<CR>:make<CR>
 nmap <silent> <Leader>of :FSHere<cr>
 let c_no_curly_error=1
+nmap ,T :!find . -name '*.h' \| xargs ctags --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q<CR>
+nmap <C-j> :lne<CR>
+nmap <C-k> :lp<CR>
+nmap ,j :cn<CR>
+nmap ,k :cp<CR>
+
+" search behavior
+set hlsearch
+set incsearch
+nnoremap <silent> <BS> :nohls<Bar>:echo<CR>
+
+" highlight word without moving
+nnoremap <silent> * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 " fzf
 map <C-G> :GFiles<CR>
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+" color scheme
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
 \}
 colorscheme jellybeans
-
-set hidden
-set ic
-set wildignore+=*.pyc
-set updatetime=100
+hi Search cterm=NONE ctermfg=NONE ctermbg=DarkBlue
+hi CursorLine cterm=NONE ctermbg=Black ctermfg=NONE
+hi GitGutterDelete ctermfg=1
 
 " -- Cscope --
 let g:cscope_silent=1
