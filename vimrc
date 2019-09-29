@@ -72,7 +72,9 @@ Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin indent on
 
-call ctrlp_bdelete#init()
+if exists('ctrlp_bdelete#init')
+  call ctrlp_bdelete#init()
+endif
 
 " Put your non-Plugin stuff after this line
 
@@ -120,7 +122,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
 \}
-colorscheme jellybeans
+silent! colorscheme jellybeans
 hi Search cterm=NONE ctermfg=NONE ctermbg=DarkBlue
 hi CursorLine cterm=NONE ctermbg=Black ctermfg=NONE
 hi GitGutterDelete ctermfg=1
