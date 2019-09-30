@@ -37,6 +37,9 @@
 "
 " see :h vundle for more details or wiki for FAQ
 
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 set nocompatible
 filetype off
 
