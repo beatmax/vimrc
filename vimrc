@@ -83,7 +83,7 @@ endif
 
 set hidden
 set ic
-set wildignore+=*.pyc
+set wildignore+=*.o,*.pyc,*.pyo
 set updatetime=100
 set title
 "set laststatus=2
@@ -93,7 +93,8 @@ nmap Zz :qa<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 map <Tab> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeRespectWildIgnore = 1
+let NERDTreeIgnore = ['__pycache__']
 map <C-B> :CtrlPBuffer<CR>
 map t :TlistToggle<CR>
 let Tlist_Use_Right_Window = 1
