@@ -77,9 +77,7 @@ Plugin 'junegunn/fzf.vim'
 call vundle#end()
 filetype plugin indent on
 
-if exists('ctrlp_bdelete#init')
-  call ctrlp_bdelete#init()
-endif
+call ctrlp_bdelete#init()
 
 " Put your non-Plugin stuff after this line
 
