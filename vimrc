@@ -27,7 +27,9 @@
 " <c-x><c-k>        - complete word (fzf)
 " <c-x><c-l>        - complete line (fzf)
 "
-" Many things can be done with fzf, see: https://github.com/junegunn/fzf.vim
+" Links
+" - Many things can be done with fzf: https://github.com/junegunn/fzf.vim
+" - Replace a word with yanked text: https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text
 
 " Vundle - Brief help
 " :PluginList       - lists configured plugins
