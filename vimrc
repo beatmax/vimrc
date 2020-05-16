@@ -1,12 +1,17 @@
 " Quick reference
-" Zz                - Exit Vim if no buffers have changes
-" :cw               - Open quickfix window
+" ctrl + j/k/h/l    - change window
+" <Tab>             - toggle NERDTree
+" <S-Tab>           - focus NERDTree on current file
+" Zz                - exit Vim if no buffers have changes
+" :cw               - open quickfix window
+" ,j / ,k           - next/previous location in quickfix list
+" <J / <K           - next/previous location in location list
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
-" <C-@>             - Delete buffer (in CtrlPBuffer)
-" <C-G>             - Git files (fzf)
-" \gs               - Git status
-" \gd               - Git diff
+" <C-@>             - delete buffer (in CtrlPBuffer)
+" <C-G>             - git files (fzf)
+" \gs               - git status
+" \gd               - git diff
 " \hp               - GitGutterPreviewHunk
 " \hu               - GitGutterUndoHunk
 " \hs               - GitGutterStageHunk
@@ -19,8 +24,6 @@
 " :tn / :tp         - next/previous tag match
 " \m                - write all and make
 " \of               - switch source/hearder
-" <C-j> / <C-k>     - next/previous location in location list
-" ,j / ,k           - next/previous location in quickfix list
 " <BS>              - turn off highlighted search matches
 "
 " Insert mode
@@ -89,10 +92,19 @@ set title
 "set laststatus=2
 set cursorline
 
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
+nmap ,j :cn<CR>
+nmap ,k :cp<CR>
+nmap <J :lne<CR>
+nmap <K :lp<CR>
 nmap Zz :qa<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 map <Tab> :NERDTreeToggle<CR>
+map <S-Tab> :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore = 1
 let NERDTreeIgnore = ['__pycache__']
 map <C-B> :CtrlPBuffer<CR>
@@ -104,10 +116,6 @@ nmap <Leader>m :wa<CR>:make<CR>
 nmap <silent> <Leader>of :FSHere<cr>
 let c_no_curly_error=1
 nmap ,T :!find . -name '*.h' \| xargs ctags --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q<CR>
-nmap <C-j> :lne<CR>
-nmap <C-k> :lp<CR>
-nmap ,j :cn<CR>
-nmap ,k :cp<CR>
 
 " search behavior
 set hlsearch
