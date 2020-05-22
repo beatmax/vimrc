@@ -1,5 +1,6 @@
 " Quick reference
-" ctrl + j/k/h/l    - change window
+" <C-j/k/h/l>       - change window
+" <C-c>             - close window
 " <Tab>             - toggle NERDTree
 " <S-Tab>           - focus NERDTree on current file
 " Zz                - exit Vim if no buffers have changes
@@ -27,8 +28,8 @@
 " <BS>              - turn off highlighted search matches
 "
 " Insert mode
-" <c-x><c-k>        - complete word (fzf)
-" <c-x><c-l>        - complete line (fzf)
+" <C-x><C-k>        - complete word (fzf)
+" <C-x><C-l>        - complete line (fzf)
 "
 " Links
 " - Many things can be done with fzf: https://github.com/junegunn/fzf.vim
@@ -96,6 +97,7 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
+noremap <C-c> <C-w>c
 nmap ,j :cn<CR>
 nmap ,k :cp<CR>
 nmap <J :lne<CR>
