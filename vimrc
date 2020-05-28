@@ -18,6 +18,8 @@
 " \hs               - GitGutterStageHunk
 " [c / ]c           - previous/next hunk
 " :FixWhitespace    - remove trailing whitespaces
+" :Man [n] <name>   - open manpage
+" \K                - open manpage for word under cursor
 " ,T                - run ctags on C++ headers
 " t                 - taglist toggle
 " <C-]>             - follow tag
@@ -76,12 +78,14 @@ Plugin 'gioele/vim-autoswap'
 Plugin 'scrooloose/syntastic'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'jez/vim-superman'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
 
 call ctrlp_bdelete#init()
+runtime! ftplugin/man.vim
 
 " Put your non-Plugin stuff after this line
 
