@@ -80,6 +80,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'jez/vim-superman'
 Plugin 'rust-lang/rust.vim'
+Plugin 'tell-k/vim-autopep8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -105,6 +106,7 @@ noremap <C-l> <C-w>l
 noremap <C-c> <C-w>c
 nmap ,j :cn<CR>
 nmap ,k :cp<CR>
+nmap ,e :copen<CR>/error:<CR><CR>
 nmap <J :lne<CR>
 nmap <K :lp<CR>
 nmap Zz :qa<CR>
