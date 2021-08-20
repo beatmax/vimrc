@@ -7,6 +7,8 @@
 " :cw               - open quickfix window
 " ,j / ,k           - next/previous location in quickfix list
 " <J / <K           - next/previous location in location list
+" :Rg <pattern>     - search with rg
+" \g                - search for word under cursor using rg
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
 " <C-@>             - delete buffer (in CtrlPBuffer)
@@ -138,6 +140,16 @@ nnoremap <silent> * :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 map <C-G> :GFiles<CR>
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" additional rg arguments, e.g. "-g '*.cpp' -g '*.h' -g '*.hpp'"
+let g:rg_args=''
+
+" search with rg
+command! -bang -nargs=1 Rg
+    \ call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(<f-args>), 0, <bang>0)
+
+" search for word under cursor using rg
+nmap <leader>g :call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(expand('<cword>')), 1)<CR>
 
 " color scheme
 let g:jellybeans_overrides = {
