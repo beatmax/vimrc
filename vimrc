@@ -9,6 +9,7 @@
 " <J / <K           - next/previous location in location list
 " :Rg <pattern>     - search with rg
 " \g                - search for word under cursor using rg
+"                     (then Alt+A adds filtered results to quickfix list)
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
 " <C-@>             - delete buffer (in CtrlPBuffer)
