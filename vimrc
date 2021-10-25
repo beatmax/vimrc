@@ -113,7 +113,7 @@ nmap ,e :copen<CR>/error:<CR><CR>
 nmap <J :lne<CR>
 nmap <K :lp<CR>
 nmap Zz :qa<CR>
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 map <Tab> :NERDTreeToggle<CR>
 map <S-Tab> :NERDTreeFind<CR>
