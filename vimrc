@@ -7,9 +7,9 @@
 " :cw               - open quickfix window
 " ,j / ,k           - next/previous location in quickfix list
 " <J / <K           - next/previous location in location list
-" :Rg <pattern>     - search with rg
-" \g                - search for word under cursor using rg
-"                     (then Alt+A adds filtered results to quickfix list)
+" :Rg <pattern>     - search with rg (fzf)
+" :Rgi <pattern>    - search with rg, case insensitive (fzf)
+" \g                - search for word under cursor using rg (fzf)
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
 " <C-@>             - delete buffer (in CtrlPBuffer)
@@ -35,6 +35,12 @@
 " Insert mode
 " <C-x><C-k>        - complete word (fzf)
 " <C-x><C-l>        - complete line (fzf)
+"
+" Within fzf results
+" <C-N/P>           - next/previous result
+" <Tab> / <S-Tab>   - switch selection, move to next/previous
+" <Alt-A/D>         - select/deselect all
+" <Enter>           - open selected files / add results to quickfix list
 "
 " Links
 " - Many things can be done with fzf: https://github.com/junegunn/fzf.vim
@@ -148,6 +154,8 @@ let g:rg_args=''
 " search with rg
 command! -bang -nargs=1 Rg
     \ call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(<f-args>), 0, <bang>0)
+command! -bang -nargs=1 Rgi
+    \ call fzf#vim#grep('rg -n --column -i '.g:rg_args.' '.shellescape(<f-args>), 0, <bang>0)
 
 " search for word under cursor using rg
 nmap <leader>g :call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(expand('<cword>')), 1)<CR>
