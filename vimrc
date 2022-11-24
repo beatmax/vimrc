@@ -109,11 +109,16 @@ set title
 "set laststatus=2
 set cursorline
 
+noremap <C-c> <C-w>c
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
-noremap <C-c> <C-w>c
+" TODO conflicts with e.g. control+G popup window - but C-p/n can be used!
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+tnoremap <C-h> <C-w>h
+tnoremap <C-l> <C-w>l
 nmap ,j :cn<CR>
 nmap ,k :cp<CR>
 nmap ,e :copen<CR>/error:<CR><CR>
