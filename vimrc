@@ -29,6 +29,7 @@
 " g <C-]>           - follow tag (multiple matches)
 " :tn / :tp         - next/previous tag match
 " \m                - write all and make
+" \x                - write all and make in terminal window
 " \of               - switch source/hearder
 " <BS>              - turn off highlighted search matches
 "
@@ -131,6 +132,7 @@ let Tlist_Use_Right_Window = 1
 "let g:localvimrc_file_directory_only = 1
 let g:localvimrc_persistent = 1
 nmap <Leader>m :wa<CR>:make<CR>
+nmap <Leader>x :wa<CR>:term make<CR>
 nmap <silent> <Leader>of :FSHere<cr>
 let c_no_curly_error=1
 nmap ,T :!find . -name '*.h' \| xargs ctags --sort=yes --c++-kinds=+p --fields=+iaS --extras=+q<CR>
