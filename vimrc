@@ -9,6 +9,7 @@
 " <J / <K           - next/previous location in location list
 " :Rg <pattern>     - search with rg (fzf)
 " :Rgi <pattern>    - search with rg, case insensitive (fzf)
+" :Rgr <args>       - search with rg, passing raw arguments (fzf)
 " \g                - search for word under cursor using rg (fzf)
 " <C-P>             - CtrlP
 " <C-B>             - CtrlPBuffer
@@ -16,6 +17,7 @@
 " <C-G>             - git files (fzf)
 " \gs               - git status
 " \gd               - git diff
+" \gr               - git revisions of current file
 " \hp               - GitGutterPreviewHunk
 " \hu               - GitGutterUndoHunk
 " \hs               - GitGutterStageHunk
@@ -91,6 +93,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jez/vim-superman'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'gauteh/vim-cppman'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -127,6 +130,7 @@ nmap <K :lp<CR>
 nmap Zz :qa<CR>
 nnoremap <Leader>gs :Git<CR>
 nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gr :0Gclog<CR>
 map <Tab> :NERDTreeToggle<CR>
 map <S-Tab> :NERDTreeFind<CR>
 let NERDTreeRespectWildIgnore = 1
@@ -163,6 +167,10 @@ command! -bang -nargs=1 Rg
     \ call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(<f-args>), 0, <bang>0)
 command! -bang -nargs=1 Rgi
     \ call fzf#vim#grep('rg -n --column -i '.g:rg_args.' '.shellescape(<f-args>), 0, <bang>0)
+
+" search with rg, passing raw arguments
+command! -bang -nargs=? Rgr
+    \ call fzf#vim#grep('rg -n --column '.<q-args>, 0, <bang>0)
 
 " search for word under cursor using rg
 nmap <leader>g :call fzf#vim#grep('rg -n --column '.g:rg_args.' '.shellescape(expand('<cword>')), 1)<CR>
