@@ -32,7 +32,7 @@
 " :tn / :tp         - next/previous tag match
 " \m                - write all and make
 " \x                - write all and make in terminal window
-" \of               - switch source/hearder
+" \of               - switch source/header
 " <BS>              - turn off highlighted search matches
 "
 " Insert mode
